@@ -11,7 +11,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
     type="text/css"/>
     
-    <link href="{{ mix('/css/backend.css') }}" rel="stylesheet" type="text/css">
+    @vite('resources/css/backend.css')
 
     @yield('backend-style')
 
@@ -51,7 +51,7 @@
     </div>
     <script type="text/javascript" src="{{ asset('/plugins/ckeditor/ckeditor.js') }}"></script>
 
-    <script src="{{ mix('/js/backend.js') }}"></script>
+    @vite('resources/js/backend.js')
 
     @yield('backend-script')
 
