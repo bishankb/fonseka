@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\Routine;
 
-class UserTableSeeder extends Seeder
+class RoutineTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -41,7 +41,7 @@ class UserTableSeeder extends Seeder
                 'quality_score' => +1,
                 'notes'         => "Bad Day",
                 'user_id'       => 1,
-                'created_at'    => '2022-08-05 11:22:34'
+                'created_at'    => '2022-07-02 11:22:34'
             ]
         );
 
@@ -61,7 +61,7 @@ class UserTableSeeder extends Seeder
                 'quality_score' => +1,
                 'notes'         => "Good Day",
                 'user_id'       => 2,
-                'created_at'    => '2022-08-03 13:22:34'
+                'created_at'    => '2022-07-03 13:22:34'
             ]
         );
 
@@ -71,7 +71,7 @@ class UserTableSeeder extends Seeder
                 'quality_score' => -2,
                 'notes'         => "Good Day",
                 'user_id'       => 2,
-                'created_at'    => '2022-08-04 16:22:34'
+                'created_at'    => '2022-06-04 16:22:34'
             ]
         );
 

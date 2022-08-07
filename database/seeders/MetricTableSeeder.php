@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\Metric;
 
-class UserTableSeeder extends Seeder
+class MetricTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
