@@ -18,7 +18,7 @@
 
     <div class="form-group">
       <label class="control-label visible-ie8 visible-ie9" for="email">Email</label>
-      <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" required value="{{ $email or old('email') }}"/>
+      <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" required value="{{ $email ?? old('email') }}"/>
       @if ($errors->has('email'))
         <span class="help-block" style="color: red;">{{ $errors->first('email') }}</span>
       @endif
