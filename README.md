@@ -5,9 +5,11 @@
 
 ## Setting up environment
 
-    // Clone the project.
-    $ Create database 'foneseka' or any other database.
-    $ Use the existing environment file provided or Copy .env.example and setup the environment
+    * Clone the project.
+    * Create database 'foneseka' or any other.
+    * Use the existing environment file provided or Copy .env.example and setup the environment
+    
+## Running command to install dependencies and node modules
     $ composer install
     $ npm install
     $ npm run dev
@@ -23,4 +25,4 @@
     * Setup mailtrap for testing.
 
 ## Note:
-	* Add button will be disabled after the data is added. It will be enable on the next day. To test it please alter the day of 'created_at' in 'routine' table.
+	* Add button will be disabled after the data is added and will be enable on the next day. To test it please alter the day of 'created_at' in 'routine' table.
