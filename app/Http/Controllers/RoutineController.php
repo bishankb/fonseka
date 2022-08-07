@@ -30,13 +30,17 @@ class RoutineController extends Controller
                             ->latest('created_at')
                             ->paginate(20);
         
-        if (Carbon::today() > Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) {
-            $disableButton = false;
-        } else {
-            $disableButton = true;
+        if( isset(Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) ) {
+            if (Carbon::today() > Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) {
+                $disableButton = false;
+            } else {
+                $disableButton = true;
+            }
+                   
+            return view('backend.routine.index', compact('disableButton', 'routines'));
         }
-               
-        return view('backend.routine.index', compact('disableButton', 'routines'));
+
+        return view('backend.routine.index', compact('routines'));
     }
 
     /**
@@ -48,10 +52,14 @@ class RoutineController extends Controller
     {
         $quality_scores = Routine::QualityScore;
 
-        if (Carbon::today() > Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) {
-            return view('backend.routine.create', compact('quality_scores'));
+        if( isset(Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) ) {
+            if (Carbon::today() > Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) {
+                return view('backend.routine.create', compact('quality_scores'));
+            } else {
+                return abort(401);
+            }
         } else {
-            return abort(401);
+            return view('backend.routine.create', compact('quality_scores'));
         }
     }
 

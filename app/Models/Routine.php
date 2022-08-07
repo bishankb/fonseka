@@ -22,10 +22,10 @@ class Routine extends Model
     ];
 
     const QualityScore = [
-        'Great Day (+2)',
-        'Good Day(+1)',
-        'Meh Day (0)',
-        'Negative Day (-1)',
-        'Bad Day (-2)',        
+        '2' => 'Great Day (+2)',
+        '1' => 'Good Day(+1)',
+        '0' => 'Meh Day (0)',
+        '-1' => 'Negative Day (-1)',
+        '-2' => 'Bad Day (-2)',        
     ];
 }

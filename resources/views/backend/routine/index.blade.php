@@ -15,17 +15,24 @@
       </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="caption pull-right">
-            <div class="tooltip-wrapper disabled" data-title="{{ $disableButton ? 'Wait till tomorrow' : 'Add today Routine' }}">
-                <a href="{{ route('routines.create') }}" class="btn btn-sm bold green {{ $disableButton ? 'disabled' : '' }}">
-                <i class="fa fa-plus"></i> Add New
-                </a>
-            </div>
+              @isset($disableButton)
+                <div class="tooltip-wrapper disabled" data-title="{{ $disableButton ? 'Wait till tomorrow' : 'Add today Routine' }}">
+                    <a href="{{ route('routines.create') }}" class="btn btn-sm bold green {{ $disableButton ? 'disabled' : '' }}">
+                    <i class="fa fa-plus"></i> Add New
+                    </a>
+                </div>
+              @else
+                <div class="tooltip-wrapper disabled" data-title="Add today Routine">
+                    <a href="{{ route('routines.create') }}" class="btn btn-sm bold green">
+                    <i class="fa fa-plus"></i> Add New
+                    </a>
+                </div>
+              @endisset
           </div>
         </div>
-
-
     </div>
   </div>
+  
   <div class="portlet-body">
     <div class="table-responsive">
       <table class="table table-striped table-bordered">
@@ -45,7 +52,7 @@
             <td>{{ pagination($routines, $loop) }}</td>                      
             <td>{{ $routine->created_at->format('d M, Y') }} ({{ $routine->created_at->format('l') }})</td>
             <td>{{ $routine->creative_work }}</td>
-            <td>{{ $routine->quality_score }}</td>
+            <td>{{ \App\Models\Routine::QualityScore[$routine->quality_score] }}</td>
             <td>{{ $routine->notes }}</td>
             
               <td class="text-center">
