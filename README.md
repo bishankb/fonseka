@@ -22,6 +22,7 @@
 ## Run the custom command to manually send the notification to all the users to enter daily routine via email
     $ php artisan schedule:run
     * Note: The automatic message is sent every minute for testing purpose. To make it daily change everyMinute() to daily() in line 19 in app/console/kernel.php.
+    * Change APP_URL=http://localhost to APP_URL=http://localhost:8000 in line 5 in .env
     * Setup mailtrap for testing.
 
 ## Note:
