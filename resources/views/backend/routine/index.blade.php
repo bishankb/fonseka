@@ -15,9 +15,11 @@
       </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="caption pull-right">
-            <a href="{{ route('routines.create') }}" class="btn btn-sm bold green">
-              <i class="fa fa-plus"></i> Add New
-            </a>
+            <div class="tooltip-wrapper disabled" data-title="{{ $disableButton ? 'Wait till tomorrow' : 'Add today Routine' }}">
+                <a href="{{ route('routines.create') }}" class="btn btn-sm bold green {{ $disableButton ? 'disabled' : '' }}">
+                <i class="fa fa-plus"></i> Add New
+                </a>
+            </div>
           </div>
         </div>
 
@@ -41,7 +43,7 @@
         @forelse($routines as $routine)
           <tr>
             <td>{{ pagination($routines, $loop) }}</td>                      
-            <td>{{ $routine->created_at->format('d l') }}</td>
+            <td>{{ $routine->created_at->format('d M, Y') }} ({{ $routine->created_at->format('l') }})</td>
             <td>{{ $routine->creative_work }}</td>
             <td>{{ $routine->quality_score }}</td>
             <td>{{ $routine->notes }}</td>
@@ -74,4 +76,14 @@
   <div class="portlet-footer text-center">
     {{ $routines->appends(request()->input())->links() }}    
   </div>
+@endsection
+
+@section('backend-script')
+  <script type="text/javascript">
+
+
+    $(function() {
+    $('.tooltip-wrapper').tooltip({position: "bottom"});
+});
+  </script>
 @endsection

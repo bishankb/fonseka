@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    {!! Form::model($page_type, ['method' => 'PUT', 'route' => ['routines.update',  $routine->id ]) !!}
+    {!! Form::model($routine, ['method' => 'PUT', 'route' => ['routines.update',  $routine->id ]]) !!}
         <div class="portlet-body">
            
             @include('backend.routine._form')

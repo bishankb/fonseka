@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Routine;
+use Carbon\Carbon;
 
 class RoutineController extends Controller
 {
@@ -26,9 +27,16 @@ class RoutineController extends Controller
     public function index()
     {
         $routines = Routine::where('user_id', Auth::user()->id)
-                            ->paginate(30);
+                            ->latest('created_at')
+                            ->paginate(20);
+        
+        if (Carbon::today() > Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) {
+            $disableButton = false;
+        } else {
+            $disableButton = true;
+        }
                
-        return view('backend.routine.index', compact('routines'));
+        return view('backend.routine.index', compact('disableButton', 'routines'));
     }
 
     /**
@@ -40,7 +48,11 @@ class RoutineController extends Controller
     {
         $quality_scores = Routine::QualityScore;
 
-        return view('backend.routine.create', compact('quality_scores'));
+        if (Carbon::today() > Routine::where('user_id', Auth::user()->id)->latest()->first()->created_at) {
+            return view('backend.routine.create', compact('quality_scores'));
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -53,7 +65,7 @@ class RoutineController extends Controller
     {
         $this->validate($request,
             [
-                'creative_work' => 'required|numeric|max:324',
+                'creative_work' => 'required|numeric|max:24',
                 'quality_score' => 'required|numeric',
                 'notes'         => 'nullable|string|min:2|max:655356'
             ]
@@ -98,7 +110,7 @@ class RoutineController extends Controller
      */
     public function edit($id)
     {
-        $routine = Routine::find($id);
+        $routine = Routine::where('user_id', Auth::user()->id)->find($id);
         $quality_scores = Routine::QualityScore;
 
         return view('backend.routine.edit', compact('routine', 'quality_scores'));
@@ -113,7 +125,7 @@ class RoutineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $routine = Routine::ind($id);
+        $routine = Routine::where('user_id', Auth::user()->id)->find($id);
 
         $this->validate($request,
             [
