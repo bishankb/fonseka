@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('metrics', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type');
+            $table->longText('description')->nullable();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

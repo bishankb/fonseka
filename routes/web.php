@@ -29,4 +29,7 @@ Route::group([
 
     //Routine
     Route::resource('routines', 'App\Http\Controllers\RoutineController');
+
+    //Metric
+    Route::resource('metrics', 'App\Http\Controllers\MetricController');
 });

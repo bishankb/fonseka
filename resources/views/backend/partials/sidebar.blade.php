@@ -15,11 +15,18 @@
       </li>
 
       <li class="nav-item {{ Request::is('routines*') ? 'active' : '' }}">
-          <a href="{{ route('routines.index') }}" class="nav-link nav-toggle">
-            <i class="fa fa-clock-o"></i>
-            <span class="title">Routine</span>
-          </a>
-        </li>
+        <a href="{{ route('routines.index') }}" class="nav-link nav-toggle">
+          <i class="fa fa-clock-o"></i>
+          <span class="title">Routine</span>
+        </a>
+      </li>
+
+      <li class="nav-item {{ Request::is('metrics*') ? 'active' : '' }}">
+        <a href="{{ route('metrics.index') }}" class="nav-link nav-toggle">
+          <i class="fa fa-cog"></i>
+          <span class="title">Custom Metric</span>
+        </a>
+      </li>
     </ul>
   </div>
 </div>

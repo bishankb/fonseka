@@ -50,7 +50,7 @@
             </div>
             <hr>
             @empty
-                <h2>NO Data</h2>
+                <h4>No Data</h4>
             @endforelse
         </div>
 @endsection

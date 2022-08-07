@@ -62,6 +62,9 @@ class RoutineController extends Controller
         } else {
             return view('backend.routine.create', compact('quality_scores'));
         }
+
+        return view('backend.routine.create', compact('quality_scores'));
+
     }
 
     /**
@@ -171,7 +174,7 @@ class RoutineController extends Controller
      */
     public function destroy($id)
     {
-        $routine = Routine::find($id);
+        $routine = Routine::where('user_id', Auth::user()->id)->find($id);
 
         try {
             $routine->delete();
