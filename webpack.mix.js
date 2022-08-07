@@ -62,7 +62,6 @@ mix.styles([
 ], 'public/css/backend.css');
 
 
-mix.copyDirectory('resources/assets/images', 'public/images');
 mix.copyDirectory('resources/assets/metronic/global/plugins/font-awesome/fonts', 'public/fonts');
 mix.copyDirectory('resources/assets/metronic/global/plugins/simple-line-icons/fonts', 'public/css/fonts');
 mix.copyDirectory('resources/assets/metronic/global/plugins/bootstrap/fonts/bootstrap', 'public/fonts/bootstrap');
