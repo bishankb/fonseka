@@ -27,6 +27,7 @@ class RoutineController extends Controller
     public function index()
     {
         $routines = Routine::where('user_id', Auth::user()->id)
+                            ->sort(request('criteria'))
                             ->latest('created_at')
                             ->paginate(20);
         

@@ -2,8 +2,8 @@
   <div class="page-header navbar navbar-fixed-top">
     <div class="page-header-inner ">
       <div class="page-logo">
-        <a target="__blank" href="#">
-          <img src="{{ asset('images/admin-logo.png') }}" alt="logo" class="logo-default"/>
+        <a target="__blank" href="#" class="logo-default" style="pointer-events: none; color: #fff; font-size: 16px; margin-top: 13px;">
+          {{ Auth::user()->name }}
         </a>
         <div class="menu-toggler sidebar-toggler">
           <span></span>
@@ -14,45 +14,15 @@
       </a>
       <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              
+          <li>
+              <a href="#" style="color: #fff" 
+              onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="icon-logout"></i> Logout
             </a>
-            <ul class="dropdown-menu dropdown-menu-default">
-              
-            </ul>
-          </li>
 
-          <li class="dropdown dropdown-user">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-            data-close-others="true">
-              <img alt="" class="img-circle" src="{{asset('images/avatar.png')}}"/>
-              <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-default">
-              <li>
-                  <a href="#">
-                    <i class="fa fa-bell"></i> Send Notifications
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-info-circle"></i> Edit About App
-                  </a>
-                </li>
-                <hr style="margin-top: -2px; margin-bottom: -2px;">
-                <li>
-                  <a href="#"
-                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                  <i class="icon-logout"></i> Logout
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  {{ csrf_field() }}
-                </form>
-              </li>
-            </ul>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
           </li>
         </ul>
       </div>

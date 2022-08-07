@@ -28,4 +28,21 @@ class Routine extends Model
         '-1' => 'Negative Day (-1)',
         '-2' => 'Bad Day (-2)',        
     ];
+
+    public function scopeSort($query, $filter)
+    {
+        if ($filter) {
+            if($filter == "day-low-high") {
+                return $query->orderBy('created_at', 'asc');
+            } elseif ($filter == "day-high-low") {
+                return $query->orderBy('created_at', 'desc');
+            } elseif($filter == "creative_work-low-high") {
+                return $query->orderBy('creative_work', 'asc');
+            } elseif ($filter == "creative_work-high-low") {
+                return $query->orderBy('creative_work', 'desc');
+            }
+        }
+
+        return $query;
+    }
 }

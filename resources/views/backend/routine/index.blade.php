@@ -10,7 +10,6 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <h1 class="page-title font-green sbold">
           <i class="fa fa-television font-green"></i> Daily Routine
-          <small class="font-green sbold">Date: {{ \Carbon\Carbon::now()->format('M, Y') }}</small>
         </h1>
       </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
@@ -39,8 +38,28 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Day</th>
-          <th>Creative Work</th>
+          <th>
+            <a href="{{ route('routines.index', array_merge(Request::all(), ['sort_by' => 'criteria', 'criteria' => 'day-high-low'])) }}" style="margin-right: 5px;">
+              <i class="fa fa-arrow-up"></i>
+            </a>
+
+              Day
+
+            <a href="{{ route('routines.index', array_merge(Request::all(), ['sort_by' => 'criteria', 'criteria' => 'day-low-high'])) }}" style="margin-left: 5px;"> 
+              <i class="fa fa-arrow-down"></i>
+            </a>
+          </th>
+          <th>
+            <a href="{{ route('routines.index', array_merge(Request::all(), ['sort_by' => 'criteria', 'criteria' => 'creative_work-high-low'])) }}" style="margin-right: 5px;">
+              <i class="fa fa-arrow-up"></i>
+            </a>
+
+              Creative Work
+
+            <a href="{{ route('routines.index', array_merge(Request::all(), ['sort_by' => 'criteria', 'criteria' => 'creative_work-low-high'])) }}" style="margin-left: 5px;"> 
+              <i class="fa fa-arrow-down"></i>
+            </a>
+          </th>
           <th>Quality Score</th>
           <th>Notes</th>          
           <th class="text-center">Actions</th>

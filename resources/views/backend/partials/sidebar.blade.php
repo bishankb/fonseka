@@ -7,16 +7,16 @@
         </div>
       </li>
 
-      <li class="nav-item {{ Request::is('admin') ? 'active' : '' }}">
+      <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
         <a href="{{ route('dashboard') }}" class="nav-link nav-toggle">
           <i class="fa fa-tachometer"></i>
           <span class="title">Dashboard</span>
         </a>
       </li>
 
-      <li class="nav-item {{ Request::is('admin/routines*') ? 'active' : '' }}">
+      <li class="nav-item {{ Request::is('routines*') ? 'active' : '' }}">
           <a href="{{ route('routines.index') }}" class="nav-link nav-toggle">
-            <i class="fa fa-file-image-o"></i>
+            <i class="fa fa-clock-o"></i>
             <span class="title">Routine</span>
           </a>
         </li>
