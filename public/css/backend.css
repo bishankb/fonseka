@@ -1557,3 +1557,17 @@ div {
 .form-edit-button {
     display: inline-block;
 }
+
+/*Pagination*/
+.portlet-footer {
+    min-height: 56px;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.portlet-footer .btn-back {
+    float: left;
+}
+/*Pagination*/

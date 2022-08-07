@@ -29,7 +29,21 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::ROUTINE;
+
+     public function postRegister(Request $request)
+     {
+        $validator = $this->registrar->validator($request->all());
+        if ($validator->fails())
+        {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+        $this->auth->login($this->registrar->create($request->all()));     
+        // Now you can redirect!
+        return redirect('/routines');
+     }
 
     /**
      * Create a new controller instance.

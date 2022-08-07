@@ -21,7 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::group([
+    'middleware' => ['auth']
+], function(){
+    //Dashboard
+    Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
-//Routine
-Route::resource('routines', 'App\Http\Controllers\RoutineController');
+    //Routine
+    Route::resource('routines', 'App\Http\Controllers\RoutineController');
+});

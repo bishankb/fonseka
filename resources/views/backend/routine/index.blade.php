@@ -10,6 +10,7 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <h1 class="page-title font-green sbold">
           <i class="fa fa-television font-green"></i> Daily Routine
+          <small class="font-green sbold">Date: {{ \Carbon\Carbon::now()->format('M, Y') }}</small>
         </h1>
       </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
@@ -29,6 +30,7 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Day</th>
           <th>Creative Work</th>
           <th>Quality Score</th>
           <th>Notes</th>          
@@ -39,6 +41,7 @@
         @forelse($routines as $routine)
           <tr>
             <td>{{ pagination($routines, $loop) }}</td>                      
+            <td>{{ $routine->created_at->format('d l') }}</td>
             <td>{{ $routine->creative_work }}</td>
             <td>{{ $routine->quality_score }}</td>
             <td>{{ $routine->notes }}</td>

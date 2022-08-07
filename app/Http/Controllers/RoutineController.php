@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Models\Routine;
 
 class RoutineController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,8 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        $routines = Routine::paginate(20);
+        $routines = Routine::where('user_id', Auth::user()->id)
+                            ->paginate(30);
                
         return view('backend.routine.index', compact('routines'));
     }
@@ -53,7 +65,8 @@ class RoutineController extends Controller
                 [
                     'creative_work' => request('creative_work'),
                     'quality_score' => request('quality_score'),
-                    'notes'         => request('notes')
+                    'notes'         => request('notes'),
+                    'user_id'       => Auth::user()->id
                 ]
             );
 

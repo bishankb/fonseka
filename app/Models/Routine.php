@@ -17,7 +17,8 @@ class Routine extends Model
     protected $fillable = [
         'creative_work',
         'quality_score',
-        'notes'
+        'notes',
+        'user_id'
     ];
 
     const QualityScore = [

@@ -3,7 +3,7 @@
         <div class="form-group required {{ $errors->has('creative_work') ? ' has-error' : '' }} clearfix ">
             {!! Form::label('creative_work', 'Creative Work', ['class' => 'control-label']) !!}
 
-            {!! Form::text('creative_work', null, ['class' => 'form-control', 'required' => 'required', 'placeholder'=>'How many hours you spend in creative work']) !!}
+            {!! Form::number('creative_work', null, ['class' => 'form-control', 'required' => 'required', 'placeholder'=>'How many hours you spend in creative work']) !!}
 
             @if ($errors->has('creative_work'))
                 <div class="ui pointing red basic label"> {{$errors->first('creative_work')}}</div>

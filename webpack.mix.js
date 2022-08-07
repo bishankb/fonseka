@@ -84,5 +84,7 @@ mix.styles([
     'resources/assets/metronic/global/plugins/select2/css/select2-bootstrap.min.css',
     'resources/assets/metronic/global/css/components.min.css',
     'resources/assets/metronic/global/css/plugins.min.css',
-    'resources/assets/metronic/global/css/login.min.css'
+    'resources/assets/metronic/global/css/login.min.css',
+    'resources/css/semantic-label.css',
+    'resources/css/custom.css',
 ], 'public/css/auth.css');

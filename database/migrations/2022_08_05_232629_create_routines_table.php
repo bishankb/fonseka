@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('routines', function (Blueprint $table) {
             $table->id();
-            $table->string('creative_work');
+            $table->integer('creative_work');
             $table->unsignedInteger('quality_score');
             $table->longText('notes')->nullable();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
