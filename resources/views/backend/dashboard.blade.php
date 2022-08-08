@@ -28,7 +28,7 @@
                                 <span data-counter="counterup" data-value="1349">{{$data->sum('creative_work')}} hrs</span>
                                 
                             </div>
-                            <div class="desc"> Active Hours </div>
+                            <div class="desc"> Creative Work </div>
                         </div>
                     </a>
                 </div>
