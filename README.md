@@ -1,6 +1,6 @@
 # Daily Routine Application
 ## Requirements
-    $ php 8.0 +
+    $ php 9.0 +
     $ node.js
 
 ## Setting up environment
